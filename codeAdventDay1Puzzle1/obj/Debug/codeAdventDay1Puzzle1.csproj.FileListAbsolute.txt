@@ -1,1 +1,6 @@
 c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\bin\Debug\codeAdventDay1Puzzle1.exe.config
+c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\bin\Debug\codeAdventDay1Puzzle1.exe
+c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\bin\Debug\codeAdventDay1Puzzle1.pdb
+c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\obj\Debug\codeAdventDay1Puzzle1.csprojResolveAssemblyReference.cache
+c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\obj\Debug\codeAdventDay1Puzzle1.exe
+c:\users\josh\documents\visual studio 2015\Projects\codeAdventDay1Puzzle1\codeAdventDay1Puzzle1\obj\Debug\codeAdventDay1Puzzle1.pdb
