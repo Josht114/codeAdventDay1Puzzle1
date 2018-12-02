@@ -19,6 +19,11 @@ namespace codeAdventDay1Puzzle1
             bool repeatFound = false;
             string firstRepeat = "";
 
+            string number = "";
+
+            int containsCounter = 0;
+            int doesNotContainCounter = 0;
+            int x = 0;
 
             while (true) // Loop indefinitely
             {
@@ -32,38 +37,45 @@ namespace codeAdventDay1Puzzle1
                 ongoing = ongoing + input;
                 listOfInputs.Add(input);
 
-                string number = "0";
+
+                if (input != "loop")
+                {
+                     number = "";
+                }
 
                 if (input.Length > 1 && input.ToString() != "loop")
                 {
                     number = input.Remove(0, 1);
                 }
 
+                if (input != "loop")
+                {
+                     x = Int32.Parse(number);
+                }
 
-                int x = Int32.Parse(number);
 
-                if (input.Contains("+"))
+                if (input.Contains("+") && input != "loop")
                 {
                     total = total + x;
                 }
-                else if (input.Contains("-"))
+                else if (input.Contains("-") && input != "loop")
                 {
                     total = total - x;
                 }
 
-                if(listOfTotals.Contains(total))
+                if(listOfTotals.Contains(total) && input != "loop")
                 {
-                    Console.Write("First repeat from first bit "); // Report output
-                    Console.Write(total);
+                    Console.Write("First repeat from first bit ");
+                    Console.Write("Current total " + total + Environment.NewLine);
                     firstRepeat = total.ToString();
                     repeatFound = true;
 
                 }
-                else
+                else if  (input != "loop")
                 {
-                    Console.Write("NO REPEAT ");
+                    Console.Write("NO REPEAT (no loop) ");
                     listOfTotals.Add(total);
-
+                    Console.Write("New total added " + total + Environment.NewLine);
                 }
 
                 string stringList = "";
@@ -98,6 +110,9 @@ namespace codeAdventDay1Puzzle1
 
                 if (input == "loop") // Check string
                 {
+
+                    listOfInputs.Remove("loop");
+
                     while (true)
                     {
 
@@ -106,53 +121,60 @@ namespace codeAdventDay1Puzzle1
                             if (existingInput.Length > 1 )
                             {
                                 if (existingInput.ToString() != "loop")
-                                { }
-                                else
                                 {
-                                    number = input.Remove(0, 1);
+                                    number = existingInput.Remove(0, 1);
                                 }
+
                             }
 
-                            Console.Write("x "); // Report output
-                            Console.Write(number);
+                            Console.Write("existingInput (in loop) " + existingInput + Environment.NewLine);
 
-                            x = Int32.Parse(number);
+                            if (existingInput != "loop")
+                            {
+                                x = Int32.Parse(number);
+                            }
 
-                            if (existingInput.Contains("+"))
+                            if (existingInput.Contains("+") && existingInput != "loop")
                             {
                                 total = total + x;
                                 Console.Write("added ");
                             }
-                            else if (input.Contains("-"))
+                            else if (existingInput.Contains("-") && existingInput != "loop")
                             {
                                 total = total - x;
                                 Console.Write("subtracted ");
                             }
 
-                            Console.Write("existingInput "); // Report output
-                            Console.Write(existingInput.ToString());
+                            Console.Write("Number " + number + Environment.NewLine);
 
-                              Console.Write("Number "); // Report output
-                              Console.Write(number + Environment.NewLine);
-                        //      Console.Write("Current list "); // Report output
-                        //       Console.Write(stringList + Environment.NewLine);
-                              Console.Write("Current total "); // Report output
-                                      Console.Write(total + Environment.NewLine);
+                              Console.Write("Current total " + total + Environment.NewLine);
 
-                            Console.Write("Total " + total);
 
-                            if (listOfTotals.Contains(total) || total != 536)
+                       //     Console.Write("Total " + total + Environment.NewLine);
+
+                            if (listOfTotals.Contains(total) && existingInput != "loop")
                             {
-                                Console.Write("First repeat from loop " + Environment.NewLine); // Report output
-                                Console.Write(total);
+                                containsCounter++;
+                                Console.Write("Contains counter " + containsCounter + Environment.NewLine);
+
+                                Console.Write("total in list of totals " + Environment.NewLine);
+
                                 firstRepeat = total.ToString();
                                 repeatFound = true;
+                                break;
 
                             }
-                            else
+                            else if (existingInput != "loop")
                             {
-                                Console.Write("NO REPEAT ");
+                                doesNotContainCounter++;
+                                Console.Write("Contains counter " + containsCounter + Environment.NewLine);
+
+
+                                Console.Write("NO REPEAT " + Environment.NewLine);
                                 listOfTotals.Add(total);
+
+                                Console.Write("New total added " + total + Environment.NewLine);
+
 
                             }
                         }
